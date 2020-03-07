@@ -1,0 +1,70 @@
+<div>
+  <mat-toolbar color="primary">
+    <span>My Application</span>
+  </mat-toolbar>
+
+  <div class="main-section">
+    <mat-card>
+      <mat-card-title>Welcome {{ user.name }}</mat-card-title>
+      <div>
+        <br />
+        <br />
+        <h2>What is your name?</h2>
+        <mat-card-content tabindex="0">
+          <form class="card-body-content" (ngSubmit)="handleSubmit($event)">
+            <mat-form-field>
+              <mat-label>Name</mat-label>
+              <input
+                (keyup)="handleChange($event)"
+                matInput
+                placeholder="Mr. Randy Wilson"
+                name="name"
+                [value]="user.name"
+              />
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-label>When were you born</mat-label>
+              <input
+                placeholder="12/25/0001"
+                matInput
+                [matDatepicker]="picker"
+                name="dob"
+                [value]="user.dob"
+                (dateChange)="handleDateChange($event)"
+              />
+              <mat-datepicker-toggle
+                matSuffix
+                [for]="picker"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </form>
+          <button
+            (click)="handleSubmit($event)"
+            color="primary"
+            mat-raised-button
+          >
+            Submit!
+          </button>
+        </mat-card-content>
+      </div>
+    </mat-card>
+
+    <br />
+
+    <h3>Choose your color</h3>
+    <div class="color-section">
+      <mat-chip-list aria-label="Fish selection" *ngFor="let color of colors">
+        <!-- <mat-chip>Two fish</mat-chip>
+        <mat-chip color="primary" selected>Primary fish</mat-chip>
+        <mat-chip color="accent" selected>Accent fish</mat-chip> -->
+        <mat-chip style="background-color: {{ color }}; color:white;">{{
+          color
+        }}</mat-chip>
+      </mat-chip-list>
+    </div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>

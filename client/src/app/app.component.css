@@ -1,0 +1,17 @@
+.main-section {
+  margin: 20px auto;
+  width: 700px;
+}
+
+.card-body-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.color-section {
+  display: flex;
+
+  /* flex-direction: row; */
+  /* justify-content: space-between; */
+}
